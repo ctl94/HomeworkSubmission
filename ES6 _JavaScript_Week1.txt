@@ -35,3 +35,44 @@ if ( input != null){
 else {
   alert ("Thank you");
   }
+}
+  function Checknumber(val){
+  let randomnumber = generaterandomnumber(1, 10);
+  if (val == randomnumber) {
+    alert(" Congratulation, the random number is " + randomnumber + " ,you are right in the " + Guess + " time/times . ");
+      }
+  else if (Guess < 10 && val != randomnumber) {
+  
+       pastguess.push(val);
+        pastguess;
+      
+    Guess = Guess + 1 ;
+    
+    sub = val - randomnumber;
+    function different(sub) {
+      if (sub < 0) {
+        z = ("too low");
+      }
+      else {
+        (sub > 0)
+        z = ("too high");
+      }
+      return z;
+    }
+  
+    diff = different(sub)
+    if (confirm("Unfortunately, Your Guess is " + diff + " . You have " + (11-Guess) + " Guesses remaining . Your Previous Guesses : "  + pastguess + " . Do you want to try again" )) {
+      new Guessnumber();
+    }
+    else {
+      alert("Thank you ");
+    }
+  }
+    else if (Guess = 10) {
+    alert("Thank you . Game Over , Allowing user 10 times");  
+      }
+    }
+
+
+var call= Guessnumber(0,10);
+
