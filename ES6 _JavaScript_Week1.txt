@@ -1,26 +1,11 @@
 function generaterandomnumber(min, max) {
   return x = Math.floor(Math.random() * (max - min + 1)) + min;
-
 }
+
 var pastguess = Array()
 var Guess = 1
-function Multiplenumber(val){
-  pastguess.push(val);
-  val = Number.isInteger(val)
-for ( i = 1; i < pastguess.length ; i ++){
-        if (pastguess[i].val === pastguess[pastguess.length -1].val){
-          pastguess = pastguess.pop();
-          alert("Disallow Guessing the Same Number Twice ");
-         new Guessnumber()
-        }
-        else {
-          pastguess.push(val);
-           return pastguess;
-        }
-      }
-    }
-function Guessnumber(min, max) {
 
+function Guessnumber(min, max) {
   var input = prompt("Guess a number  ", "0");
 if ( input != null){
   var val = parseInt(input)
@@ -34,20 +19,25 @@ if ( input != null){
   }
 else {
   alert ("Thank you");
+    }
   }
-}
-  function Checknumber(val){
+  
+  function Checknumber(val) {
   let randomnumber = generaterandomnumber(1, 10);
+  console.log("Random number " + randomnumber);
   if (val == randomnumber) {
     alert(" Congratulation, the random number is " + randomnumber + " ,you are right in the " + Guess + " time/times . ");
       }
   else if (Guess < 10 && val != randomnumber) {
-  
-       pastguess.push(val);
-        pastguess;
-      
-    Guess = Guess + 1 ;
-    
+       pastguess.push(val)
+       last = parseInt(pastguess[pastguess.length-1]);
+       Guess = Guess + 1 ;
+       if ( Guess > 0 && last ==pastguess[pastguess.length-2]){ 
+          alert ( "Disallow Guessing the Same Number Twice");
+          pastguess.pop();
+          new Guessnumber();
+       }
+       else {       
     sub = val - randomnumber;
     function different(sub) {
       if (sub < 0) {
@@ -61,12 +51,13 @@ else {
     }
   
     diff = different(sub)
-    if (confirm("Unfortunately, Your Guess is " + diff + " . You have " + (11-Guess) + " Guesses remaining . Your Previous Guesses : "  + pastguess + " . Do you want to try again" )) {
+    if (confirm("Unfortunately, Your Guess is " + diff + " . You have " + (11-Guess) + " Guesses remaining . Your Previous Guesses : "  + pastguess.join(" , ") + " . Do you want to try again" )) {
       new Guessnumber();
     }
     else {
       alert("Thank you ");
-    }
+    } 
+  }
   }
     else if (Guess = 10) {
     alert("Thank you . Game Over , Allowing user 10 times");  
